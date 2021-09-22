@@ -1,24 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TextRPG;
 
-public class ItemDatabase : MonoBehaviour
+
+namespace TextRPG
 {
-    public List<string> Items { get; set; } = new List<string>();
-    public static ItemDatabase Instance  { get; private set; }
 
-    private void Awake()
+    public class ItemDatabase : MonoBehaviour
     {
-        if (Instance != null && Instance != this)
-            Destroy(gameObject);
-        else
-            Instance = this;
+        public List<string> Items { get; set; } = new List<string>();
+        public static ItemDatabase Instance { get; private set; }
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+                Destroy(gameObject);
+            else
+                Instance = this;
 
 
-        Items.Add("Emerald Slipper");
-        Items.Add(" Empty Chalice");
-        Items.Add("Bowtie");
+            Items.Add("Emerald Slipper");
+            Items.Add(" Empty Chalice");
+            Items.Add("Bowtie");
+        }
+
     }
-
 }
+

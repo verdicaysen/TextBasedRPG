@@ -18,11 +18,16 @@ public class Player : Character
         Gold = 0;
         Inventory = new List<string>();
         RoomIndex = new Vector2(2, 2);
+        
     }
 
     public void AddItem(string item)
     {
         Inventory.Add(item);
+    }
+    public void AddItem(int item)
+    {
+        Inventory.Add(ItemDatabase.Instance.Items[item]);
     }
 
     public override void TakeDamage(int amount)

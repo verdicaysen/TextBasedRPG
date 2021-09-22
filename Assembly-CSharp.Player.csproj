@@ -55,10 +55,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
-    <Compile Include="Assets\Scripts\Raccoon.cs" />
-    <Compile Include="Assets\Scripts\Walrus.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Raccoon.cs" />
     <Compile Include="Assets\Scripts\ItemDatabase.cs" />
+    <Compile Include="Assets\Scripts\Walrus.cs" />
+    <Compile Include="Assets\Scripts\EnemyDatabase.cs" />
+    <Compile Include="Assets\Scripts\Chest.cs" />
+    <Compile Include="Assets\Scripts\Room.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
