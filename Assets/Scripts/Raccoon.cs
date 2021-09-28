@@ -17,6 +17,7 @@ public class Raccoon : Enemy
         Attack = 5;
         Defense = 3;
         Gold = 20;
+        Description = "Raccoon";
         Inventory.Add("Stick.");
        
     }

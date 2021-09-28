@@ -12,6 +12,7 @@ public class Walrus : Enemy
         Attack  = 5;
         Defense = 3;
         Gold    = 20;
+        Description = "Walrus";
         Inventory.Add("Sharp Tusk");
     }
 
