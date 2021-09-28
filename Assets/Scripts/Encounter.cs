@@ -48,6 +48,36 @@ using TextRPG;
         dynamicControls[2].interactable = true;
     }
 
+    public void OpenChest()
+    {
+        Chest chest = player.Room.Chest;
+        if (chest.Trap)
+        {
+            player.TakeDamage(3);
+            Journal.Instance.Log("It was a trap! You took 5 damage.");
+        }
+        else if (chest.Heal)
+        {
+            player.TakeDamage(-7);
+            Journal.Instance.Log("You recover 7 energy.");
+        }
+        else if (chest.Enemy)
+        {
+            player.Room.Enemy = chest.Enemy;
+            player.Room.Chest = null;
+            Journal.Instance.Log("The chest contained a monster, watch out!");
+            player.Investigate();
+        }
+        else
+        {
+            player.Gold += chest.Gold;
+            player.AddItem(chest.Item);
+            Journal.Instance.Log("You found " + chest.Item + "and <color=#FFE556FF>" + chest.Gold + "g.</color>");
+        }
+        player.Room.Chest = null;
+        dynamicControls[3].interactable = false;
+    }
+
     public void Attack()
     {
         int playerDamageAmount = (int)(Random.value * (player.Attack - Enemy.Defense));
