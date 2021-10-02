@@ -18,6 +18,9 @@ namespace TextRPG
         // Constructing the innate behavior of a chest and what it pulls from the database.
         public Chest()
         {
+            /*Enemy = Random.Range(0, 5) == 2 ? EnemyDatabase.Instance.GetRandomEnemy() : null;  //Ternary Operator ?  and creating  inline conditional checks. 
+            Trap = Random.Range(0, 7) == 2; */
+
             if (Random.Range(0, 7) == 2)
             {
                 Trap = true;

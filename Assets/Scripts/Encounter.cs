@@ -35,6 +35,7 @@ using TextRPG;
         this.Enemy = player.Room.Enemy;
         dynamicControls[0].interactable = true;
         dynamicControls[1].interactable = true;
+        UIController.OnEnemyUpdate(this.Enemy); // Call the enemy reference. 
        
     }
 
@@ -72,6 +73,8 @@ using TextRPG;
         {
             player.Gold += chest.Gold;
             player.AddItem(chest.Item);
+            UIController.OnPlayerStatChange();
+            UIController.OnPlayerInventoryChange();
             Journal.Instance.Log("You found " + chest.Item + "and <color=#FFE556FF>" + chest.Gold + "g.</color>");
         }
         player.Room.Chest = null;
@@ -92,6 +95,7 @@ using TextRPG;
     {
         int enemyDamageAmount = (int)(Random.value * (Enemy.Attack - player.Defense * .5f));
         player.Room.Enemy = null;
+        UIController.OnEnemyUpdate(null);
         player.TakeDamage(enemyDamageAmount);
         Journal.Instance.Log("<color=#59ffa1>You fled the fight, taking <b>" + enemyDamageAmount + "</b> damage!</color>");
         player.Investigate();
@@ -113,9 +117,8 @@ using TextRPG;
             this.Enemy.Description, this.Enemy.Inventory[0], this.Enemy.Gold
         ));
         this.Enemy = null;
-
         player.Room.Enemy = null;
-
+        UIController.OnEnemyUpdate(this.Enemy);
         player.Investigate();
     }
 

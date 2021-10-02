@@ -25,7 +25,8 @@ namespace TextRPG
             RoomIndex = new Vector2(2, 2);
             this.Room = world.Dungeon[(int)RoomIndex.x, (int)RoomIndex.y];
             world.Dungeon[(int)RoomIndex.x, (int)RoomIndex.y].Empty = true;
-            AddItem("Lots of dough.");
+            UIController.OnPlayerStatChange();
+            UIController.OnPlayerInventoryChange();
 
         }
 
@@ -69,6 +70,7 @@ namespace TextRPG
             }
             else if (this.Room.Chest != null)
             {
+                encounter.StartChest();
                 Journal.Instance.Log("You've found a chest! What would you like to do?");
             }
             else if (this.Room.Enemy != null)
@@ -86,16 +88,21 @@ namespace TextRPG
         {
             Journal.Instance.Log("You were given item: " + item);
             Inventory.Add(item);
+            UIController.OnPlayerInventoryChange();
         }
         public void AddItem(int item)
         {
             Inventory.Add(ItemDatabase.Instance.Items[item]);
+            UIController.OnPlayerInventoryChange();
+           
         }
 
         public override void TakeDamage(int amount)
         {
+            
             Debug.Log("Player TakeDamage");
             base.TakeDamage(amount);
+            UIController.OnPlayerStatChange();
         }
 
         public override void Die()

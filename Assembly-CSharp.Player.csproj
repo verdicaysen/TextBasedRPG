@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\World.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
+    <Compile Include="Assets\Scripts\Encounter.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Assets\Scripts\EnemyDatabase.cs" />
     <Compile Include="Assets\Scripts\Journal.cs" />
     <Compile Include="Assets\Scripts\Chest.cs" />
-    <Compile Include="Assets\Scripts\Encounter.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -9,6 +9,7 @@ public class Walrus : Enemy
     void Start()
     {
         Energy  = 15;
+        MaxEnergy = 15;
         Attack  = 5;
         Defense = 3;
         Gold    = 20;
